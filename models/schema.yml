@@ -32,11 +32,7 @@ sources:
             description: unique id of the product
           - name: qty
             description: quantity of products purchased
-          - name: concat(orders_id,"_", pdt_id)
-            description: primary key of the table  
-            tests:
-              - unique
-              - not_null        
+                 
       - name: ship
         identifier: raw_gz_ship
         description: all the fees related to shipping
@@ -52,5 +48,33 @@ sources:
             description: the cost of logistics
           - name: ship_cost
             description: the cost of the shipping
-            
+      
+
+models:
+  - name: int_sales_margin
+    description: table of the sales margin calculation
+    columns:
+      - name: (orders_id||"_"||pdt_id)
+        description: primary key of the table 
+        tests:
+          - unique
+          - not_null  
+
+  - name: int_orders_margin
+    description: table of the margin calculation
+    columns:
+      - name: orders_id
+        description: primary key of the table 
+        tests:
+          - unique
+          - not_null
+                                   
+  - name: int_orders_operational
+    description: table of the operational costs calculation
+    columns:
+      - name: orders_id
+        description: primary key of the table 
+        tests:
+          - unique
+          - not_null          
         
