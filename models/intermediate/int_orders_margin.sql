@@ -18,4 +18,3 @@ FROM sales as sales
 LEFT JOIN product 
 ON sales.pdt_id=product.products_id
 GROUP BY orders_id, date_date
-order by orders_id
