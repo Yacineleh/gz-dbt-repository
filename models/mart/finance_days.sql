@@ -1,3 +1,4 @@
+{{ config(materialized='finance_days') }}
 SELECT
 date_date,
 COUNT(orders_id)AS nb_transactions,
