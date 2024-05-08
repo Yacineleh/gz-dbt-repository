@@ -1,0 +1,84 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: gz_raw_data
+    tables:
+      - name: product
+        identifier: raw_gz_product
+        description: list of the products
+        columns:
+          - name: products_id
+            description: primary key of the table
+            tests:
+              - unique
+              - not_null            
+          - name: purchase_price
+            description: the price of the product purchase
+      - name: sales
+        identifier: raw_gz_sales
+        freshness: 
+          warn_after:
+            count: 90
+            period: day
+        loaded_at_field: "CAST(date_date AS timestamp)"
+        description: list of all the sales
+        columns:
+          - name: date_date
+            description: date of the purchase
+          - name: order_id
+            description: unique id of the order
+          - name: products_id
+            description: unique id of the product
+          - name: qty
+            description: quantity of products purchased
+                 
+      - name: ship
+        identifier: raw_gz_ship
+        description: all the fees related to shipping
+        columns:
+          - name: orders_id
+            description: primary key of the table 
+            tests:
+              - unique
+              - not_null                
+          - name: shipping_fee
+            description: the fee of the ship
+          - name: log_cost
+            description: the cost of logistics
+          - name: ship_cost
+            description: the cost of the shipping
+      
+
+models:
+  - name: int_sales_margin
+    description: table of the sales margin calculation
+    columns:
+      - name: (orders_id||"_"||pdt_id)
+        description: primary key of the table 
+        tests:
+          - unique
+          - not_null  
+
+  - name: int_orders_margin
+    description: table of the margin calculation
+    columns:
+      - name: orders_id
+        description: primary key of the table 
+        tests:
+          - unique
+          - not_null
+                                   
+  - name: int_orders_operational
+    description: table of the operational costs calculation
+    columns:
+      - name: orders_id
+        description: primary key of the table 
+        tests:
+          - unique
+          - not_null          
+
+
+
+
+      
