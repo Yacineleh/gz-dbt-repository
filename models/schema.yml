@@ -151,7 +151,14 @@ models:
         tests:
           - unique
           - not_null          
-
+  - name: int_campaigns
+    description: table of all the campaigns
+    columns:
+      - name: campaign_primary_key
+        description: primary key of the table 
+        tests:
+          - unique
+          - not_null    
 
 
 
