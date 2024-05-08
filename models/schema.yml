@@ -176,4 +176,11 @@ models:
         tests:
           - unique
           - not_null
-      
+  - name: finance_campaigns_month
+    description: table of all the costs by + the ads_margin by month
+    columns:
+      - name: month_year
+        description: primary key of the table 
+        tests:
+          - unique
+          - not_null      
