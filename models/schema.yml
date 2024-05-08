@@ -48,7 +48,81 @@ sources:
             description: the cost of logistics
           - name: ship_cost
             description: the cost of the shipping
-      
+
+      - name: bing
+        identifier: raw_gz_bing
+        description: the performace of bing in terms of marketing
+        columns:
+          - name: date_date
+            description: the date of the marketing operation          
+          - name: paid_source
+            description: source du paiement
+          - name: campaign_key
+            description: primary key
+          - name: camPGN_name
+            description: the name of the campaign
+          - name: ads_cost
+            description: the cost of the ads
+          - name: impression
+            description: the number of impressions     
+          - name: click
+            description: the number of click 
+
+      - name: adwords
+        identifier: raw_gz_adwords
+        description: the performace of bing in terms of marketing
+        columns:
+          - name: date_date
+            description: the date of the marketing operation          
+          - name: paid_source
+            description: source du paiement
+          - name: campaign_key
+            description: primary key
+          - name: camPGN_name
+            description: the name of the campaign
+          - name: ads_cost
+            description: the cost of the ads
+          - name: impression
+            description: the number of impressions     
+          - name: click
+            description: the number of click 
+      - name: criteo
+        identifier: raw_gz_criteo
+        description: the performace of bing in terms of marketing
+        columns:
+          - name: date_date
+            description: the date of the marketing operation          
+          - name: paid_source
+            description: source du paiement
+          - name: campaign_key
+            description: primary key
+          - name: camPGN_name
+            description: the name of the campaign
+          - name: ads_cost
+            description: the cost of the ads
+          - name: impression
+            description: the number of impressions     
+          - name: click
+            description: the number of click 
+
+      - name: facebook
+        identifier: raw_gz_facebook
+        description: the performace of bing in terms of marketing
+        columns:
+          - name: date_date
+            description: the date of the marketing operation          
+          - name: paid_source
+            description: source du paiement
+          - name: campaign_key
+            description: primary key
+          - name: camPGN_name
+            description: the name of the campaign
+          - name: ads_cost
+            description: the cost of the ads
+          - name: impression
+            description: the number of impressions     
+          - name: click
+            description: the number of click 
 
 models:
   - name: int_sales_margin
